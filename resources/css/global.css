@@ -64,3 +64,100 @@ img {
     color: var(--color-white);
     background: var(--color-gold);
 }
+
+/* ==================================================
+   SOCLE RESPONSIVE ET ACCESSIBILITÉ
+================================================== */
+
+html {
+    width: 100%;
+    overflow-x: clip;
+    scroll-padding-top: 24px;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    overflow-x: clip;
+}
+
+main,
+section,
+header,
+footer,
+nav,
+div,
+article,
+aside {
+    min-width: 0;
+}
+
+img,
+picture,
+video,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+    touch-action: manipulation;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+a,
+span {
+    overflow-wrap: break-word;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-gold-light);
+    outline-offset: 4px;
+}
+
+@supports not (overflow: clip) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
