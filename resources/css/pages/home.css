@@ -1353,3 +1353,362 @@
         font-size: 0.55rem;
     }
 }
+
+/* ==================================================
+   AJUSTEMENTS RESPONSIVE GLOBAUX — ACCUEIL
+================================================== */
+
+.hero-content,
+.home-about-container,
+.home-cats-container,
+.home-adoption-container,
+.home-contact-container {
+    width: min(calc(100% - clamp(36px, 10vw, 96px)), 1440px);
+}
+
+.hero h1,
+.home-about-heading h2,
+.home-cats-heading h2,
+.home-adoption-heading h2,
+.home-contact h2 {
+    text-wrap: balance;
+}
+
+.hero-description,
+.home-cats-heading > p,
+.contact-introduction {
+    text-wrap: pretty;
+}
+
+@media (max-width: 1200px) and (min-width: 901px) {
+    .hero-content,
+    .home-about-container,
+    .home-cats-container,
+    .home-adoption-container,
+    .home-contact-container {
+        width: calc(100% - 64px);
+    }
+
+    .hero-content {
+        padding-top: 205px;
+    }
+
+    .home-about,
+    .home-cats,
+    .home-adoption {
+        padding-top: 110px;
+        padding-bottom: 120px;
+    }
+
+    .home-about-content {
+        gap: clamp(55px, 7vw, 90px);
+    }
+
+    .home-about-image {
+        min-height: 580px;
+    }
+
+    .image-signature {
+        right: -16px;
+    }
+
+    .home-cats-heading {
+        gap: 50px;
+    }
+
+    .home-adoption-content {
+        gap: clamp(60px, 8vw, 110px);
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-content,
+    .home-about-container,
+    .home-cats-container,
+    .home-adoption-container,
+    .home-contact-container {
+        width: calc(100% - 36px);
+    }
+
+    .hero {
+        min-height: max(680px, 100svh);
+    }
+
+    .hero-image {
+        object-position: 58% center;
+    }
+
+    .home-about-image {
+        aspect-ratio: 4 / 5;
+        min-height: 0;
+    }
+
+    .home-cats-grid {
+        grid-template-rows: clamp(430px, 68vw, 560px) clamp(300px, 43vw, 370px);
+    }
+
+    .home-contact {
+        min-height: max(650px, 85svh);
+    }
+}
+
+@media (max-width: 700px) {
+    .home-about-heading,
+    .home-adoption-heading {
+        display: block;
+    }
+
+    .home-about-heading h2,
+    .home-adoption-heading > div {
+        grid-column: auto;
+    }
+
+    .section-number {
+        margin-bottom: 18px;
+    }
+
+    .home-cats-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cat-card,
+    .cat-card-large {
+        min-height: clamp(360px, 110vw, 500px);
+    }
+
+    .cat-card-large {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 540px) {
+    .hero {
+        min-height: max(650px, 100svh);
+    }
+
+    .hero-content {
+        width: calc(100% - 36px);
+        padding-top: 135px;
+        padding-bottom: 112px;
+    }
+
+    .hero-content::before {
+        top: 100px;
+        bottom: 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.85rem, 14.2vw, 4.25rem);
+        letter-spacing: -0.045em;
+        line-height: 0.91;
+    }
+
+    .hero-description {
+        font-size: 0.84rem;
+    }
+
+    .hero-primary-action,
+    .contact-primary-action {
+        min-height: 52px;
+    }
+
+    .hero-footer {
+        align-items: flex-end;
+    }
+
+    .scroll-indicator {
+        font-size: 0.54rem;
+    }
+
+    .home-about,
+    .home-cats,
+    .home-adoption {
+        padding-top: 72px;
+        padding-bottom: 78px;
+    }
+
+    .home-about-heading,
+    .home-cats-heading,
+    .home-adoption-heading {
+        margin-bottom: 42px;
+    }
+
+    .home-about-heading h2,
+    .home-cats-heading h2,
+    .home-adoption-heading h2 {
+        font-size: clamp(2.8rem, 13.5vw, 4.1rem);
+        line-height: 0.95;
+    }
+
+    .home-about-content {
+        gap: 46px;
+    }
+
+    .home-about-image {
+        aspect-ratio: 4 / 5;
+    }
+
+    .image-signature {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        min-width: 0;
+        padding: 17px 19px;
+    }
+
+    .home-about-introduction {
+        font-size: 1.55rem;
+    }
+
+    .home-about-details {
+        margin-top: 34px;
+        margin-bottom: 31px;
+    }
+
+    .home-about-details article {
+        grid-template-columns: minmax(75px, 0.35fr) 1fr;
+    }
+
+    .cat-card,
+    .cat-card-large {
+        min-height: clamp(350px, 115vw, 455px);
+    }
+
+    .cat-card-content strong {
+        font-size: clamp(2rem, 11vw, 2.8rem);
+    }
+
+    .home-adoption::before {
+        height: 55px;
+    }
+
+    .home-adoption-content {
+        gap: 44px;
+    }
+
+    .adoption-step {
+        grid-template-columns: 38px 1fr;
+        gap: 12px;
+    }
+
+    .adoption-step h3 {
+        font-size: clamp(1.65rem, 8vw, 1.95rem);
+    }
+
+    .home-contact {
+        min-height: max(620px, 88svh);
+    }
+
+    .home-contact-container {
+        padding-top: 90px;
+        padding-bottom: 125px;
+    }
+
+    .home-contact h2 {
+        font-size: clamp(3rem, 15vw, 4.7rem);
+        line-height: 0.92;
+    }
+
+    .contact-introduction {
+        font-size: 0.84rem;
+    }
+
+    .contact-location {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-content,
+    .home-about-container,
+    .home-cats-container,
+    .home-adoption-container,
+    .home-contact-container {
+        width: calc(100% - 28px);
+    }
+
+    .hero h1 {
+        font-size: clamp(2.65rem, 14vw, 3.55rem);
+    }
+
+    .hero-eyebrow,
+    .section-eyebrow,
+    .dark-section-eyebrow,
+    .contact-eyebrow {
+        font-size: 0.56rem;
+        letter-spacing: 0.13em;
+    }
+
+    .home-about-heading h2,
+    .home-cats-heading h2,
+    .home-adoption-heading h2 {
+        font-size: clamp(2.65rem, 13.5vw, 3.6rem);
+    }
+
+    .home-about-details article {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .home-contact h2 {
+        font-size: clamp(2.8rem, 14vw, 3.8rem);
+    }
+
+    .contact-location {
+        gap: 8px 14px;
+    }
+}
+
+@media (max-height: 700px) and (orientation: landscape) {
+    .hero {
+        min-height: 680px;
+    }
+
+    .hero-content {
+        padding-top: 175px;
+        padding-bottom: 105px;
+    }
+
+    .hero-description {
+        margin-top: 20px;
+    }
+
+    .hero-actions {
+        margin-top: 25px;
+    }
+
+    .home-contact {
+        min-height: 620px;
+    }
+}
+
+@media (hover: none) {
+    .cat-card-link {
+        max-height: 30px;
+        margin-top: 14px;
+        opacity: 1;
+    }
+
+    .cat-card:hover img,
+    .home-contact:hover .home-contact-image {
+        transform: none;
+    }
+
+    .adoption-step:hover {
+        padding-left: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-contact-image,
+    .cat-card img,
+    .cat-card-link,
+    .adoption-step,
+    .text-link span,
+    .contact-primary-action,
+    .contact-primary-action span {
+        transition: none;
+    }
+}
