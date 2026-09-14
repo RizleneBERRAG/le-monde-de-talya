@@ -378,3 +378,145 @@
         transition: none;
     }
 }
+
+/* ==================================================
+   AJUSTEMENTS FLUIDES MULTI-ÉCRANS
+================================================== */
+
+.site-header {
+    --header-inline-space: clamp(18px, 5vw, 48px);
+}
+
+.header-top,
+.header-bottom {
+    width: min(calc(100% - (var(--header-inline-space) * 2)), 1440px);
+}
+
+.brand {
+    min-width: 0;
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.desktop-navigation {
+    min-width: 0;
+}
+
+.desktop-navigation a,
+.header-contact {
+    white-space: nowrap;
+}
+
+.mobile-menu-button {
+    position: relative;
+    z-index: 102;
+}
+
+.mobile-navigation {
+    overscroll-behavior: contain;
+}
+
+@media (max-width: 1240px) and (min-width: 901px) {
+    .header-top,
+    .header-bottom {
+        width: calc(100% - 48px);
+    }
+
+    .desktop-navigation {
+        gap: clamp(18px, 2vw, 28px);
+    }
+
+    .desktop-navigation a,
+    .header-contact {
+        font-size: 0.68rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .site-header {
+        position: absolute;
+    }
+
+    .header-top {
+        width: calc(100% - 36px);
+    }
+
+    .mobile-navigation {
+        position: fixed;
+        z-index: 101;
+        top: 88px;
+        height: calc(100dvh - 88px);
+        min-height: 0;
+        padding:
+            clamp(28px, 6vh, 52px)
+            max(26px, env(safe-area-inset-right))
+            max(28px, env(safe-area-inset-bottom))
+            max(26px, env(safe-area-inset-left));
+        overflow-y: auto;
+    }
+
+    .mobile-navigation a {
+        display: flex;
+        align-items: center;
+        min-height: 54px;
+        padding: 12px 0;
+        font-size: clamp(1.35rem, 5vw, 1.65rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .header-top {
+        width: calc(100% - 28px);
+    }
+
+    .brand-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .brand-detail {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .mobile-navigation {
+        top: 80px;
+        height: calc(100dvh - 80px);
+    }
+}
+
+@media (max-width: 360px) {
+    .brand-detail {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 34px;
+        height: 44px;
+    }
+
+    .brand-name {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-height: 620px) and (max-width: 900px) {
+    .mobile-navigation {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .mobile-navigation a {
+        min-height: 45px;
+        padding: 8px 0;
+        font-size: 1.25rem;
+    }
+
+    .mobile-navigation a:last-child {
+        margin-top: 10px;
+    }
+}
