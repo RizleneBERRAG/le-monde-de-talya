@@ -20,10 +20,11 @@
 
                 <nav class="footer-navigation" aria-label="Navigation secondaire">
                     <a href="{{ route('home') }}">Accueil</a>
-                    <a href="#chatterie">La chatterie</a>
-                    <a href="#maine-coons">Nos Maine Coons</a>
-                    <a href="#adoption">L’adoption</a>
-                    <a href="#contact">Contact</a>
+                    <a href="{{ route('chatterie') }}">La chatterie</a>
+                    <a href="{{ route('maine-coons') }}">Nos Maine Coons</a>
+                    <a href="{{ route('chatons') }}">Nos chatons</a>
+                    <a href="{{ route('adoption') }}">L’adoption</a>
+                    <a href="{{ route('contact') }}">Contact</a>
                 </nav>
             </div>
 
