@@ -8,9 +8,11 @@
             >
 
             <span class="brand-copy">
-        <span class="brand-name">Le Monde de Talya</span>
-        <span class="brand-detail">Chatterie familiale · Isère</span>
-    </span>
+                <span class="brand-name">Le Monde de Talya</span>
+                <span class="brand-detail">
+                    Chatterie familiale · Isère
+                </span>
+            </span>
         </a>
 
         <button
@@ -26,15 +28,50 @@
     </div>
 
     <div class="header-bottom">
-        <nav class="desktop-navigation" aria-label="Navigation principale">
-            <a href="{{ route('home') }}" class="active">Accueil</a>
-            <a href="#chatterie">La chatterie</a>
-            <a href="#maine-coons">Nos Maine Coons</a>
-            <a href="#chatons">Nos chatons</a>
-            <a href="#adoption">L’adoption</a>
+        <nav
+            class="desktop-navigation"
+            aria-label="Navigation principale"
+        >
+            <a
+                href="{{ route('home') }}"
+                class="{{ request()->routeIs('home') ? 'active' : '' }}"
+            >
+                Accueil
+            </a>
+
+            <a
+                href="{{ route('chatterie') }}"
+                class="{{ request()->routeIs('chatterie') ? 'active' : '' }}"
+            >
+                La chatterie
+            </a>
+
+            <a
+                href="{{ route('maine-coons') }}"
+                class="{{ request()->routeIs('maine-coons') ? 'active' : '' }}"
+            >
+                Nos Maine Coons
+            </a>
+
+            <a
+                href="{{ route('chatons') }}"
+                class="{{ request()->routeIs('chatons') ? 'active' : '' }}"
+            >
+                Nos chatons
+            </a>
+
+            <a
+                href="{{ route('adoption') }}"
+                class="{{ request()->routeIs('adoption') ? 'active' : '' }}"
+            >
+                L’adoption
+            </a>
         </nav>
 
-        <a href="#contact" class="header-contact">
+        <a
+            href="{{ route('contact') }}"
+            class="header-contact {{ request()->routeIs('contact') ? 'active' : '' }}"
+        >
             Prendre contact
             <span aria-hidden="true">↗</span>
         </a>
@@ -45,11 +82,46 @@
         id="mobile-navigation"
         aria-label="Navigation mobile"
     >
-        <a href="{{ route('home') }}">Accueil</a>
-        <a href="#chatterie">La chatterie</a>
-        <a href="#maine-coons">Nos Maine Coons</a>
-        <a href="#chatons">Nos chatons</a>
-        <a href="#adoption">L’adoption</a>
-        <a href="#contact">Prendre contact</a>
+        <a
+            href="{{ route('home') }}"
+            class="{{ request()->routeIs('home') ? 'active' : '' }}"
+        >
+            Accueil
+        </a>
+
+        <a
+            href="{{ route('chatterie') }}"
+            class="{{ request()->routeIs('chatterie') ? 'active' : '' }}"
+        >
+            La chatterie
+        </a>
+
+        <a
+            href="{{ route('maine-coons') }}"
+            class="{{ request()->routeIs('maine-coons') ? 'active' : '' }}"
+        >
+            Nos Maine Coons
+        </a>
+
+        <a
+            href="{{ route('chatons') }}"
+            class="{{ request()->routeIs('chatons') ? 'active' : '' }}"
+        >
+            Nos chatons
+        </a>
+
+        <a
+            href="{{ route('adoption') }}"
+            class="{{ request()->routeIs('adoption') ? 'active' : '' }}"
+        >
+            L’adoption
+        </a>
+
+        <a
+            href="{{ route('contact') }}"
+            class="{{ request()->routeIs('contact') ? 'active' : '' }}"
+        >
+            Contact
+        </a>
     </nav>
 </header>

@@ -1,0 +1,709 @@
+/* ==================================================
+   PAGE CHATTERIE
+================================================== */
+
+.cattery-page {
+    color: #29251f;
+    background: #f3eee5;
+}
+
+.cattery-container {
+    width: min(calc(100% - 96px), 1340px);
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.cattery-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 760px;
+    overflow: hidden;
+    color: #ffffff;
+    background: #171411;
+}
+
+.cattery-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: catteryHeroZoom 14s ease-out both;
+}
+
+.cattery-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 10, 8, 0.78) 0%,
+            rgba(12, 10, 8, 0.48) 45%,
+            rgba(12, 10, 8, 0.08) 78%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(12, 10, 8, 0.76) 0%,
+            transparent 54%
+        );
+}
+
+.cattery-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(calc(100% - 96px), 1440px);
+    margin: 0 auto;
+    padding: 245px 0 135px;
+}
+
+.cattery-eyebrow,
+.cattery-section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #d9bd91;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.cattery-eyebrow {
+    margin-bottom: 26px;
+}
+
+.cattery-eyebrow::before,
+.cattery-section-eyebrow::before {
+    flex-shrink: 0;
+    width: 40px;
+    height: 1px;
+    background: currentColor;
+    content: '';
+}
+
+.cattery-hero h1 {
+    max-width: 920px;
+    font-family: var(--font-title);
+    font-size: clamp(4.4rem, 7vw, 7.7rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cattery-hero h1 em {
+    display: block;
+    color: #dfc59d;
+    font-weight: 500;
+}
+
+.cattery-hero-description {
+    max-width: 510px;
+    margin-top: 31px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.92rem;
+    line-height: 1.85;
+}
+
+.cattery-hero-footer {
+    position: absolute;
+    z-index: 2;
+    right: 48px;
+    bottom: 28px;
+    left: 48px;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+
+/* ==================================================
+   ÉLÉMENTS COMMUNS
+================================================== */
+
+.cattery-section-number {
+    display: block;
+    margin-bottom: 28px;
+    color: #9c8263;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.cattery-section-eyebrow {
+    margin-bottom: 22px;
+    color: #806f5c;
+}
+
+.cattery-section-heading h2,
+.cattery-story-content h2,
+.cattery-values-heading h2,
+.cattery-daily-content h2,
+.cattery-contact h2 {
+    font-family: var(--font-title);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+}
+
+.cattery-section-heading h2 em,
+.cattery-story-content h2 em,
+.cattery-values-heading h2 em,
+.cattery-daily-content h2 em,
+.cattery-contact h2 em {
+    display: block;
+    color: #9c8263;
+    font-weight: 500;
+}
+
+
+/* ==================================================
+   INTRODUCTION
+================================================== */
+
+.cattery-introduction {
+    position: relative;
+    padding: 145px 0;
+    overflow: hidden;
+}
+
+.cattery-introduction::after {
+    position: absolute;
+    top: -270px;
+    right: -180px;
+    width: 590px;
+    height: 590px;
+    border: 1px solid rgba(120, 94, 66, 0.13);
+    border-radius: 50%;
+    content: '';
+}
+
+.cattery-introduction-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.05fr 0.75fr;
+    gap: clamp(80px, 12vw, 175px);
+}
+
+.cattery-section-heading h2 {
+    max-width: 690px;
+    font-size: clamp(3.5rem, 5.5vw, 6rem);
+}
+
+.cattery-introduction-copy {
+    align-self: end;
+    padding-bottom: 4px;
+}
+
+.cattery-introduction-copy p {
+    color: #716960;
+    font-size: 0.88rem;
+    line-height: 1.9;
+}
+
+.cattery-introduction-copy p + p {
+    margin-top: 23px;
+}
+
+.cattery-introduction-copy .cattery-lead {
+    color: #37312b;
+    font-family: var(--font-title);
+    font-size: 1.45rem;
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   HISTOIRE
+================================================== */
+
+.cattery-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(450px, 0.9fr);
+    min-height: 790px;
+    background: #1b1815;
+}
+
+.cattery-story-image-wrapper {
+    position: relative;
+    min-height: 790px;
+    overflow: hidden;
+}
+
+.cattery-story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cattery-image-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 35px;
+    color: rgba(255, 255, 255, 0.63);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.cattery-story-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(70px, 8vw, 130px);
+    color: #ffffff;
+}
+
+.cattery-story-content h2 {
+    max-width: 620px;
+    margin-bottom: 38px;
+    font-size: clamp(3.4rem, 4.7vw, 5.4rem);
+}
+
+.cattery-story-content p:not(.cattery-section-eyebrow) {
+    max-width: 540px;
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 0.84rem;
+    line-height: 1.9;
+}
+
+.cattery-story-content p + p {
+    margin-top: 20px;
+}
+
+.cattery-signature {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 47px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.cattery-signature span {
+    color: #c3a77e;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.cattery-signature strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+
+/* ==================================================
+   VALEURS
+================================================== */
+
+.cattery-values {
+    padding: 140px 0 155px;
+    background: #eee7dc;
+}
+
+.cattery-values-heading {
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    align-items: end;
+    gap: 70px;
+    margin-bottom: 80px;
+}
+
+.cattery-values-heading h2 {
+    max-width: 730px;
+    font-size: clamp(3.5rem, 5.3vw, 5.8rem);
+}
+
+.cattery-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(67, 55, 43, 0.2);
+    border-bottom: 1px solid rgba(67, 55, 43, 0.2);
+}
+
+.cattery-value {
+    min-height: 320px;
+    padding: 42px;
+}
+
+.cattery-value + .cattery-value {
+    border-left: 1px solid rgba(67, 55, 43, 0.2);
+}
+
+.cattery-value-number {
+    display: block;
+    margin-bottom: 70px;
+    color: #a28765;
+    font-size: 0.61rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.cattery-value h3 {
+    margin-bottom: 19px;
+    font-family: var(--font-title);
+    font-size: 2.15rem;
+    font-weight: 500;
+}
+
+.cattery-value p {
+    max-width: 310px;
+    color: #746c63;
+    font-size: 0.79rem;
+    line-height: 1.85;
+}
+
+
+/* ==================================================
+   QUOTIDIEN
+================================================== */
+
+.cattery-daily {
+    display: grid;
+    grid-template-columns: minmax(460px, 0.9fr) minmax(0, 1.1fr);
+    min-height: 800px;
+    background: #f5f1e9;
+}
+
+.cattery-daily-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(70px, 8vw, 135px);
+}
+
+.cattery-daily-content h2 {
+    max-width: 590px;
+    margin-bottom: 33px;
+    font-size: clamp(3.5rem, 5vw, 5.7rem);
+}
+
+.cattery-daily-content > p:not(.cattery-section-eyebrow) {
+    max-width: 535px;
+    color: #70685f;
+    font-size: 0.86rem;
+    line-height: 1.9;
+}
+
+.cattery-daily-list {
+    margin-top: 44px;
+    border-top: 1px solid rgba(68, 55, 43, 0.18);
+    list-style: none;
+}
+
+.cattery-daily-list li {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(68, 55, 43, 0.18);
+    color: #4d4741;
+    font-size: 0.77rem;
+    line-height: 1.6;
+}
+
+.cattery-daily-list span {
+    color: #a28765;
+    font-size: 0.59rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.cattery-daily-image-wrapper {
+    min-height: 800px;
+    overflow: hidden;
+}
+
+.cattery-daily-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   APPEL À L’ACTION
+================================================== */
+
+.cattery-contact {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 640px;
+    padding: 100px 48px;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(155, 125, 88, 0.18),
+            transparent 52%
+        ),
+        #11100e;
+}
+
+.cattery-contact::before,
+.cattery-contact::after {
+    position: absolute;
+    border: 1px solid rgba(213, 185, 141, 0.12);
+    border-radius: 50%;
+    content: '';
+}
+
+.cattery-contact::before {
+    width: 600px;
+    height: 600px;
+}
+
+.cattery-contact::after {
+    width: 420px;
+    height: 420px;
+}
+
+.cattery-contact-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cattery-contact .cattery-section-eyebrow::before {
+    display: none;
+}
+
+.cattery-contact h2 {
+    max-width: 940px;
+    margin-top: 12px;
+    font-size: clamp(3.8rem, 6vw, 6.8rem);
+}
+
+.cattery-contact p:not(.cattery-section-eyebrow) {
+    max-width: 530px;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 0.84rem;
+    line-height: 1.85;
+}
+
+.cattery-contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 21px;
+    min-height: 58px;
+    margin-top: 37px;
+    padding: 0 31px;
+    color: #201c18;
+    background: #dfc49a;
+    border: 1px solid #dfc49a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    transition:
+        color 200ms ease,
+        background-color 200ms ease,
+        transform 200ms ease;
+}
+
+.cattery-contact-link:hover {
+    color: #ffffff;
+    background: transparent;
+    transform: translateY(-3px);
+}
+
+.cattery-contact-link span {
+    transition: transform 200ms ease;
+}
+
+.cattery-contact-link:hover span {
+    transform: translate(3px, -3px);
+}
+
+
+/* ==================================================
+   ANIMATION
+================================================== */
+
+@keyframes catteryHeroZoom {
+    from {
+        transform: scale(1.045);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1050px) {
+    .cattery-introduction-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .cattery-introduction-copy {
+        max-width: 700px;
+    }
+
+    .cattery-story,
+    .cattery-daily {
+        grid-template-columns: 1fr;
+    }
+
+    .cattery-story-image-wrapper,
+    .cattery-daily-image-wrapper {
+        min-height: 650px;
+    }
+
+    .cattery-daily-image-wrapper {
+        order: -1;
+    }
+
+    .cattery-values-heading {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .cattery-container,
+    .cattery-hero-content {
+        width: calc(100% - 36px);
+    }
+
+    .cattery-hero {
+        min-height: 680px;
+    }
+
+    .cattery-hero-content {
+        padding: 195px 0 115px;
+    }
+
+    .cattery-hero-footer {
+        right: 18px;
+        left: 18px;
+    }
+
+    .cattery-introduction,
+    .cattery-values {
+        padding: 95px 0;
+    }
+
+    .cattery-values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cattery-value {
+        min-height: auto;
+        padding: 35px 0;
+    }
+
+    .cattery-value + .cattery-value {
+        border-top: 1px solid rgba(67, 55, 43, 0.2);
+        border-left: 0;
+    }
+
+    .cattery-value-number {
+        margin-bottom: 35px;
+    }
+
+    .cattery-story-content,
+    .cattery-daily-content {
+        padding: 80px 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cattery-hero {
+        min-height: 640px;
+    }
+
+    .cattery-hero-image {
+        object-position: 62% center;
+    }
+
+    .cattery-hero-content {
+        padding: 175px 0 105px;
+    }
+
+    .cattery-hero h1 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+    }
+
+    .cattery-hero-description {
+        font-size: 0.85rem;
+    }
+
+    .cattery-hero-footer {
+        font-size: 0.52rem;
+    }
+
+    .cattery-introduction,
+    .cattery-values {
+        padding: 75px 0;
+    }
+
+    .cattery-section-heading h2,
+    .cattery-story-content h2,
+    .cattery-values-heading h2,
+    .cattery-daily-content h2 {
+        font-size: clamp(3.1rem, 14vw, 4.5rem);
+    }
+
+    .cattery-story-image-wrapper,
+    .cattery-daily-image-wrapper {
+        min-height: 470px;
+    }
+
+    .cattery-story-content,
+    .cattery-daily-content {
+        padding: 65px 18px;
+    }
+
+    .cattery-contact {
+        min-height: 560px;
+        padding: 80px 18px;
+    }
+
+    .cattery-contact h2 {
+        font-size: clamp(3.3rem, 15vw, 4.8rem);
+    }
+}
+
+
+/* ==================================================
+   ACCESSIBILITÉ
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .cattery-hero-image {
+        animation: none;
+    }
+
+    .cattery-contact-link,
+    .cattery-contact-link span {
+        transition: none;
+    }
+}
