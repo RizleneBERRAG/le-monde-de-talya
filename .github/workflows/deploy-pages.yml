@@ -18,6 +18,14 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: production
+      APP_DEBUG: 'false'
+      APP_URL: https://rizleneberrag.github.io/le-monde-de-talya
+      ASSET_URL: https://rizleneberrag.github.io/le-monde-de-talya
+      SESSION_DRIVER: array
+      CACHE_STORE: array
+      LOG_CHANNEL: stderr
 
     steps:
       - name: Récupérer le projet
@@ -36,13 +44,8 @@ jobs:
       - name: Préparer Laravel
         run: |
           cp .env.example .env
+          mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs
           php artisan key:generate
-          {
-            echo "APP_ENV=production"
-            echo "APP_DEBUG=false"
-            echo "APP_URL=https://rizleneberrag.github.io/le-monde-de-talya"
-            echo "ASSET_URL=https://rizleneberrag.github.io/le-monde-de-talya"
-          } >> .env
           php artisan config:clear
 
       - name: Installer Node.js
@@ -61,12 +64,19 @@ jobs:
           php artisan serve --host=127.0.0.1 --port=8000 > /tmp/talya-laravel.log 2>&1 &
           SERVER_PID=$!
 
+          SITE_READY=false
           for attempt in {1..30}; do
-            if curl --fail --silent http://127.0.0.1:8000/ > /dev/null; then
+            if curl --fail --silent --max-time 3 http://127.0.0.1:8000/ > /dev/null; then
+              SITE_READY=true
               break
             fi
             sleep 1
           done
+
+          if [ "$SITE_READY" != "true" ]; then
+            sed -n '1,200p' /tmp/talya-laravel.log
+            exit 1
+          fi
 
           mkdir -p dist
           cp -R public/build dist/build
@@ -76,15 +86,15 @@ jobs:
             cp public/favicon.ico dist/favicon.ico
           fi
 
-          curl --fail --show-error http://127.0.0.1:8000/ -o dist/index.html
+          curl --fail --show-error --max-time 10 http://127.0.0.1:8000/ -o dist/index.html
 
           for route in la-chatterie nos-maine-coons nos-chatons adoption contact; do
             mkdir -p "dist/$route"
-            curl --fail --show-error "http://127.0.0.1:8000/$route" -o "dist/$route/index.html"
+            curl --fail --show-error --max-time 10 "http://127.0.0.1:8000/$route" -o "dist/$route/index.html"
           done
 
           touch dist/.nojekyll
-          kill "$SERVER_PID"
+          kill "$SERVER_PID" || true
 
       - name: Vérifier les pages générées
         run: |
